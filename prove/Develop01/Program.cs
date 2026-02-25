@@ -1,11 +1,7 @@
 using System;
 
-class Program
+private class Program
 {
-    /// <summary>
-    /// This is the main menu of the program if statment
-    /// </summary>
-    /// <param name="args"></param>
     static void Main(string[] args)
     {
         Journal journal = new Journal();
