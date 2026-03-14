@@ -20,6 +20,7 @@ protected void StartActivity()
         Console.WriteLine();
 
         Console.Write("How long, in seconds, would you like for your session? ");
+       _duration = int.Parse(Console.ReadLine());
 
         Console.WriteLine("Get ready...");
         ShowSpinner(5);
@@ -42,19 +43,19 @@ protected void StartActivity()
         {
             Console.Write("/");
             Thread.Sleep(300);
-            Console.Write("\b \b \b \b");
+            Console.Write("\b \b");
 
             Console.Write("--");
             Thread.Sleep(300);
-            Console.Write("\b \b \b \b");
+            Console.Write("\b\b \b\b");
             
             Console.Write("\\");
             Thread.Sleep(300);
-            Console.Write("\b \b \b \b");
+            Console.Write("\b \b");
             
             Console.Write("|");
             Thread.Sleep(300);
-            Console.Write("\b \b \b \b");
+            Console.Write("\b \b");
 
         }   
     }

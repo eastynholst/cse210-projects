@@ -60,5 +60,33 @@ public class Journal
         }
 
     }
+    public void SaveToFile()
+    {
+        string filename = @"C:\Cse210 C sharp\cse210-projects\prove\Develop02\journal.txt";
+        List<string> lines = new List<string>();
+        foreach (Entry e in _entries)
+        {
+            string line = $"{e.Date}| {e.Prompt}| {e.Response}";
+            lines.Add(line);
+        }
+        File.WriteAllLines(filename, lines);
+        Console.WriteLine("Journal saved");
+    }
+    
+    public void loadFromFile()
+    {
+        string filename = @"C:\Cse210 C sharp\cse210-projects\prove\Develop02\journal.txt";
+        if (!File.Exists(filename))
+        {
+            Console.WriteLine("no journal");
+            return;
+        }
 
+        string[] Lines = File.ReadAllLines(filename);
+        foreach (string line in Lines)
+        {
+            Console.WriteLine(line);
+        }
+
+    }
 }

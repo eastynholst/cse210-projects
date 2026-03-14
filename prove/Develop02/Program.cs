@@ -16,7 +16,9 @@ class Program
         {
             Console.WriteLine("1. Write a new entry");
             Console.WriteLine("2. Display a new journal");
-            Console.WriteLine("3. Quit");
+            Console.WriteLine("3. Load journal from file");
+            Console.WriteLine("4. Save journal to file");
+            Console.WriteLine("5. Quit");
             Console.Write("What would you like to do  ");
 
             string choice = Console.ReadLine();
@@ -29,6 +31,14 @@ class Program
             else if (choice == "2")
             {
                 journal.display();
+            }
+            else if (choice == "3")
+            {
+                journal.loadFromFile();
+            }
+            else if (choice == "4")
+            {
+                journal.SaveToFile();
             }
             else if (choice == "5")
             {

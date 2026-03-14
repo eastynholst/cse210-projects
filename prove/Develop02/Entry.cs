@@ -24,8 +24,8 @@ public class Entry
     public string GetDisplayString()
     {
         return 
-        $" Date: {Date}" +
-        $" Prompt: {Prompt}" +
+        $" Date: {Date} |" +
+        $" Prompt: {Prompt} |" +
         $" Response: {Response}" ;
 
     }

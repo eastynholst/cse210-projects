@@ -39,7 +39,7 @@ public class ReflectionActivity : Activity
         Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
         Console.ReadLine();
 
-        Console.WriteLine("\nNOw ponder on each of the following questions as they related to this experience.");
+        Console.WriteLine("\nNow ponder on each of the following questions as they related to this experience.");
         ShowCountdown(5);
         Console.WriteLine();
 
@@ -54,6 +54,6 @@ public class ReflectionActivity : Activity
         }
 
         EndActivity();
-        
+
     }
 }
