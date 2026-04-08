@@ -19,4 +19,11 @@ public class EternalGoal : Goal
     {
         return $"EternalGoal,{_shortName},{_description},{_points}";
     }
+    public EternalGoal(string saveString) : base("","",0)
+    {
+        string[] parts = saveString.Split(',');
+        _shortName = parts[0];
+        _description = parts[1];
+        _points = int.Parse(parts[2]);
+    }
 }

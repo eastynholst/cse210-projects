@@ -142,41 +142,37 @@ public class GoalManager
         _score = int.Parse(lines[0]);
         for (int i = 1; i < lines.Length; i++)
         {
-            string[] parts = lines[i].Split(',');
-            string type = parts[0];
-            
-            if (type == "SimpleGoal" && parts.Length >= 5)
-            {
-                string name = parts[1];
-                string desc = parts[2];
-                int points = int.Parse(parts[3]);
-                bool done = parts[4] == "1";
+            string line = lines[i].Trim();
+        if (string.IsNullOrEmpty(line)) continue;
 
-                var goal = new SimpleGoal(name, desc, points, done);
-                _goals.Add(goal);
-            }
-            else if (type == "EternalGoal" && parts.Length >= 4)
-            {
-                string name = parts[1];
-                string desc = parts[2];
-                int points = int.Parse(parts[3]);
+        // Split on the FIRST colon only
+        string[] typeAndData = line.Split(',', 2);
 
-                var goal = new EternalGoal(name, desc, points);
-                _goals.Add(goal);
-            }
-            else if (type == "ChecklistGoal" && parts.Length >= 7)
-            {
-                string name = parts[1];
-                string desc = parts[2];
-                int points = int.Parse(parts[3]);
-                int target = int.Parse(parts[4]);
-                int bonus = int.Parse(parts[5]);
-                int completed = int.Parse(parts[6]);
+        if (typeAndData.Length != 2) continue;
 
-                var goal = new ChecklistGoal(name, desc, points, target, bonus, completed);
-                _goals.Add(goal);
-            }
+        string goalType = typeAndData[0];
+        string data = typeAndData[1];
+
+        Goal newGoal = null;
+
+        if (goalType == "SimpleGoal")
+        {
+            newGoal = new SimpleGoal(data);   
         }
+        else if (goalType == "EternalGoal")
+        {
+            newGoal = new EternalGoal(data);
+        }
+        else if (goalType == "ChecklistGoal")
+        {
+            newGoal = new ChecklistGoal(data);
+        }
+
+        if (newGoal != null)
+        {
+            _goals.Add(newGoal);
+        }
+    }
 
         Console.WriteLine($"Loaded {_goals.Count} goals and {_score} points.");
     }

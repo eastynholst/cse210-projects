@@ -31,4 +31,13 @@ public class SimpleGoal : Goal
         return $"SimpleGoal,{_shortName},{_description},{_points},{(_isComplete ? "1" : "0")}";
     }
     
+    public SimpleGoal(string saveString) : base("","",0)
+    {
+        string[] parts = saveString.Split(',');
+        _shortName = parts[0];
+        _description = parts[1];
+        _points = int.Parse(parts[2]);
+        _isComplete = parts[3] == "1";
+    }
+    
 }

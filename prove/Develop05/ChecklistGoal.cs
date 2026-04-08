@@ -39,5 +39,14 @@ public class ChecklistGoal : Goal
     {
         return $"ChecklistGoal,{_shortName},{_description},{_points},{_targetCount},{_bonusPoints},{_amountCompleted}";
     }
-    
+    public ChecklistGoal(string saveString) : base("","",0)
+    {
+        string[] parts = saveString.Split(',');
+        _shortName = parts[0];
+        _description = parts[1];
+        _points = int.Parse(parts[2]);
+        _targetCount = int.Parse(parts[3]);
+        _bonusPoints = int.Parse(parts[4]);
+        _amountCompleted = int.Parse(parts[5]);
+    }
 }
